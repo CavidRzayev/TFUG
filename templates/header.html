@@ -14,7 +14,7 @@
         <div class="container">
 
             <!-- Brand -->
-            <a class="navbar-brand" href="./index.html">
+            <a class="navbar-brand" href="{% url 'home' %} ">
                 <img src="{% static 'assets/img/brand-gigas.svg' %}" class="navbar-brand-img" alt="...">
             </a>
 
@@ -35,7 +35,7 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown dropdown-full-width">
-                        <a class="nav-link  px-xl-4 text-gigas"  href="#">
+                        <a class="nav-link  px-xl-4 text-gigas"  href="{% url 'home' %}">
                             Home
                         </a>
                         
@@ -49,20 +49,20 @@
                     
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link  px-xl-4 text-gigas" id="navbarBlog" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link  px-xl-4 text-gigas" id="navbarBlog"  href="{% url 'event' %}" >
                             Events
                         </a>
                        
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link  px-xl-4 text-gigas" id="navbarShop" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link  px-xl-4 text-gigas" id="navbarShop"  href="{% url 'about' %}">
                             About
                         </a>
                        
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link  px-xl-4 text-gigas" id="navbarShop" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link  px-xl-4 text-gigas" id="navbarShop"  href="#" >
                             Blog
                         </a>
                        

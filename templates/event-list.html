@@ -1,0 +1,804 @@
+{% include "head.html" %}
+{% load static %}
+<body class="bg-white">
+
+  
+
+    <!-- NAVBAR
+    ================================================== -->
+    {% include "header_2.html" %}
+
+
+    <!-- PAGE TITLE
+    ================================================== -->
+    <header class="py-8 py-md-11" style="background-image: none;">
+     
+        <!-- Img -->
+        <img class="d-none img-fluid" src="..." alt="...">
+    </header>
+
+
+    <!-- CONTROL BAR
+    ================================================== -->
+    {% comment %} <div class="container mb-6 mb-xl-8 z-index-2">
+        <div class="d-xl-flex align-items-center">
+            <p class="mb-xl-0">We found <span class="text-dark">834 Events</span> available for you</p>
+            <div class="ms-xl-auto d-xl-flex flex-wrap">
+                <div class="mb-4 mb-xl-0 ms-xl-6">
+                    <!-- Search -->
+                    <form class="">
+                        <div class="input-group input-group-filter">
+                            <input class="form-control form-control-sm placeholder-dark border-end-0 shadow-none" type="search" placeholder="Search Our Event" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-sm btn-outline-white border-start-0 bg-transparent text-dark" type="submit">
+                                    <!-- Icon -->
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.80758 0C3.95121 0 0 3.95121 0 8.80758C0 13.6642 3.95121 17.6152 8.80758 17.6152C13.6642 17.6152 17.6152 13.6642 17.6152 8.80758C17.6152 3.95121 13.6642 0 8.80758 0ZM8.80758 15.9892C4.8477 15.9892 1.62602 12.7675 1.62602 8.80762C1.62602 4.84773 4.8477 1.62602 8.80758 1.62602C12.7675 1.62602 15.9891 4.8477 15.9891 8.80758C15.9891 12.7675 12.7675 15.9892 8.80758 15.9892Z" fill="currentColor"/>
+                                        <path d="M19.762 18.6121L15.1007 13.9509C14.7831 13.6332 14.2687 13.6332 13.9511 13.9509C13.6335 14.2682 13.6335 14.7831 13.9511 15.1005L18.6124 19.7617C18.7712 19.9205 18.9791 19.9999 19.1872 19.9999C19.395 19.9999 19.6032 19.9205 19.762 19.7617C20.0796 19.4444 20.0796 18.9295 19.762 18.6121Z" fill="currentColor"/>
+                                    </svg>
+
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="mb-4 mb-xl-0 ms-xl-6">
+                    <div class="border rounded d-flex align-items-center choices-label h-50p">
+                        <span class="ps-5">Event Type:</span>
+                        <select class="form-select form-select-sm text-dark border-0 ps-1 bg-transparent flex-grow-1 shadow-none dropdown-menu-end" data-choices>
+                            <option>All</option>
+                            <option>New Event</option>
+                            <option>Time New to Old</option>
+                            <option>Time Old to New</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-4 mb-xl-0 ms-xl-6">
+                    <div class="border rounded d-flex align-items-center choices-label h-50p">
+                        <span class="ps-5">Sort by:</span>
+                        <select class="form-select form-select-sm text-dark border-0 ps-1 bg-transparent flex-grow-1 shadow-none dropdown-menu-end" data-choices>
+                            <option>Default</option>
+                            <option>New Event</option>
+                            <option>Time New to Old</option>
+                            <option>Time Old to New</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+
+    <!-- EVENT
+    ================================================== -->
+    <div class="container pb-4 pb-xl-7">
+        <div class="row row-cols-md-2 row-cols-lg-3 mb-4">
+
+
+            {% for x in event %}
+            <div class="col-md mb-6">
+                <!-- Card -->
+                <div class="card border shadow p-2 lift sk-fade">
+                    <!-- Image -->
+                    <div class="card-zoom position-relative">
+                        <a href="{% url 'event_detail' x.id %}" class="card-img d-block sk-thumbnail img-ratio-3 card-hover-overlay"><img class="rounded shadow-light-lg img-fluid" src="{{x.image.url}}" alt="..."></a>
+                        <a href="{% url 'event_detail' x.id %}" class="text-underline text-white card-text-overlay position-absolute h5 mb-0 center">GET TICKET</a>
+                        <a href="{% url 'event_detail' x.id %}" class="badge sk-fade-bottom badge-lg badge-orange badge-pill badge-float bottom-0 left-0 mb-4 ms-4 px-5 me-4">
+                            <span class="text-white fw-normal font-size-sm">{{x.date}}</span>
+                        </a>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer px-2 pb-2 pt-4">
+                        <!-- Heading -->
+                        <a href="{% url 'event_detail' x.id %}" class="d-block"><h5 class="line-clamp-2 h-48 h-lg-52 mb-2">{{x.name}}</h5></a>
+
+                        <ul class="nav mx-n3 d-block d-md-flex">
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    
+                                </div>
+                            </li>
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.9748 3.12964C13.6007 1.14086 11.4229 0 9.0002 0C6.57754 0 4.39972 1.14086 3.02557 3.12964C1.65816 5.10838 1.34243 7.61351 2.17929 9.82677C2.40313 10.4312 2.75894 11.0184 3.23433 11.5687L8.52105 17.7784C8.64062 17.919 8.8158 18 9.0002 18C9.18459 18 9.35978 17.919 9.47934 17.7784L14.7646 11.5703C15.2421 11.0169 15.5974 10.4303 15.8194 9.83078C16.658 7.61351 16.3422 5.10838 14.9748 3.12964ZM14.6408 9.38999C14.4697 9.85257 14.1902 10.3099 13.8107 10.7498C13.8096 10.7509 13.8086 10.7519 13.8077 10.7532L9.0002 16.3999L4.1897 10.7497C3.8104 10.3101 3.53094 9.85282 3.35808 9.38581C2.66599 7.55539 2.92864 5.48413 4.06088 3.84546C5.19668 2.20155 6.9971 1.25873 9.0002 1.25873C11.0033 1.25873 12.8035 2.20152 13.9393 3.84546C15.0718 5.48413 15.3346 7.55539 14.6408 9.38999Z" fill="currentColor"/>
+                                            <path d="M9.00019 3.73438C7.0569 3.73438 5.47571 5.31535 5.47571 7.25886C5.47571 9.20237 7.05668 10.7833 9.00019 10.7833C10.9437 10.7833 12.5247 9.20237 12.5247 7.25886C12.5247 5.31556 10.9435 3.73438 9.00019 3.73438ZM9.00019 9.52457C7.75088 9.52457 6.73444 8.50814 6.73444 7.25882C6.73444 6.00951 7.75088 4.99307 9.00019 4.99307C10.2495 4.99307 11.2659 6.00951 11.2659 7.25882C11.2659 8.50814 10.2495 9.52457 9.00019 9.52457Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">{{x.location}}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+
+           
+        </div>
+
+        <div id="loadcollapseExample" class="collapse row row-cols-md-2 row-cols-lg-3 mb-4">
+            <div class="col-md mb-6">
+                <!-- Card -->
+                <div class="card border shadow p-2 lift sk-fade">
+                    <!-- Image -->
+                    <div class="card-zoom position-relative">
+                        <a href="./event-single.html" class="card-img d-block sk-thumbnail img-ratio-3 card-hover-overlay"><img class="rounded shadow-light-lg img-fluid" src="assets/img/post/post-1.jpg" alt="..."></a>
+                        <a href="./event-single.html" class="text-underline text-white card-text-overlay position-absolute h5 mb-0 center">GET TICKET</a>
+                        <a href="./event-single.html" class="badge sk-fade-bottom badge-lg badge-orange badge-pill badge-float bottom-0 left-0 mb-4 ms-4 px-5 me-4">
+                            <span class="text-white fw-normal font-size-sm">06 Aprıl</span>
+                        </a>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer px-2 pb-2 pt-4">
+                        <!-- Heading -->
+                        <a href="./event-single.html" class="d-block"><h5 class="line-clamp-2 h-48 h-lg-52 mb-2">Discover Law - Get into the best UK law schools</h5></a>
+
+                        <ul class="nav mx-n3 d-block d-md-flex">
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.3164 4.20996C13.985 4.37028 13.8464 4.76904 14.0067 5.10026C14.4447 6.00505 14.6667 6.98031 14.6667 8C14.6667 11.6759 11.6759 14.6667 8 14.6667C4.32406 14.6667 1.33333 11.6759 1.33333 8C1.33333 4.32406 4.32406 1.33333 8 1.33333C9.52328 1.33333 10.9543 1.83073 12.1387 2.77165C12.4259 3.00098 12.846 2.95296 13.0754 2.66471C13.3047 2.37663 13.2567 1.95703 12.9683 1.72803C11.5661 0.613607 9.8016 0 8 0C3.58903 0 0 3.58903 0 8C0 12.411 3.58903 16 8 16C12.411 16 16 12.411 16 8C16 6.77767 15.7331 5.60628 15.2067 4.51969C15.0467 4.18766 14.6466 4.04932 14.3164 4.20996Z" fill="currentColor"/>
+                                            <path d="M7.99967 2.66663C7.63167 2.66663 7.33301 2.96529 7.33301 3.33329V7.99996C7.33301 8.36796 7.63167 8.66663 7.99967 8.66663H11.333C11.701 8.66663 11.9997 8.36796 11.9997 7.99996C11.9997 7.63196 11.701 7.33329 11.333 7.33329H8.66634V3.33329C8.66634 2.96529 8.36768 2.66663 7.99967 2.66663Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">8:00 am - 5:00 pm</div>
+                                </div>
+                            </li>
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.9748 3.12964C13.6007 1.14086 11.4229 0 9.0002 0C6.57754 0 4.39972 1.14086 3.02557 3.12964C1.65816 5.10838 1.34243 7.61351 2.17929 9.82677C2.40313 10.4312 2.75894 11.0184 3.23433 11.5687L8.52105 17.7784C8.64062 17.919 8.8158 18 9.0002 18C9.18459 18 9.35978 17.919 9.47934 17.7784L14.7646 11.5703C15.2421 11.0169 15.5974 10.4303 15.8194 9.83078C16.658 7.61351 16.3422 5.10838 14.9748 3.12964ZM14.6408 9.38999C14.4697 9.85257 14.1902 10.3099 13.8107 10.7498C13.8096 10.7509 13.8086 10.7519 13.8077 10.7532L9.0002 16.3999L4.1897 10.7497C3.8104 10.3101 3.53094 9.85282 3.35808 9.38581C2.66599 7.55539 2.92864 5.48413 4.06088 3.84546C5.19668 2.20155 6.9971 1.25873 9.0002 1.25873C11.0033 1.25873 12.8035 2.20152 13.9393 3.84546C15.0718 5.48413 15.3346 7.55539 14.6408 9.38999Z" fill="currentColor"/>
+                                            <path d="M9.00019 3.73438C7.0569 3.73438 5.47571 5.31535 5.47571 7.25886C5.47571 9.20237 7.05668 10.7833 9.00019 10.7833C10.9437 10.7833 12.5247 9.20237 12.5247 7.25886C12.5247 5.31556 10.9435 3.73438 9.00019 3.73438ZM9.00019 9.52457C7.75088 9.52457 6.73444 8.50814 6.73444 7.25882C6.73444 6.00951 7.75088 4.99307 9.00019 4.99307C10.2495 4.99307 11.2659 6.00951 11.2659 7.25882C11.2659 8.50814 10.2495 9.52457 9.00019 9.52457Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">London, UK</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md mb-6">
+                <!-- Card -->
+                <div class="card border shadow p-2 lift sk-fade">
+                    <!-- Image -->
+                    <div class="card-zoom position-relative">
+                        <a href="./event-single.html" class="card-img d-block sk-thumbnail img-ratio-3 card-hover-overlay"><img class="rounded shadow-light-lg img-fluid" src="assets/img/post/post-2.jpg" alt="..."></a>
+                        <a href="./event-single.html" class="text-underline text-white card-text-overlay position-absolute h5 mb-0 center">GET TICKET</a>
+                        <a href="./event-single.html" class="badge sk-fade-bottom badge-lg badge-orange badge-pill badge-float bottom-0 left-0 mb-4 ms-4 px-5 me-4">
+                            <span class="text-white fw-normal font-size-sm">06 Aprıl</span>
+                        </a>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer px-2 pb-2 pt-4">
+                        <!-- Heading -->
+                        <a href="./event-single.html" class="d-block"><h5 class="line-clamp-2 h-48 h-lg-52 mb-2">Discover Law - Get into the best UK law schools</h5></a>
+
+                        <ul class="nav mx-n3 d-block d-md-flex">
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.3164 4.20996C13.985 4.37028 13.8464 4.76904 14.0067 5.10026C14.4447 6.00505 14.6667 6.98031 14.6667 8C14.6667 11.6759 11.6759 14.6667 8 14.6667C4.32406 14.6667 1.33333 11.6759 1.33333 8C1.33333 4.32406 4.32406 1.33333 8 1.33333C9.52328 1.33333 10.9543 1.83073 12.1387 2.77165C12.4259 3.00098 12.846 2.95296 13.0754 2.66471C13.3047 2.37663 13.2567 1.95703 12.9683 1.72803C11.5661 0.613607 9.8016 0 8 0C3.58903 0 0 3.58903 0 8C0 12.411 3.58903 16 8 16C12.411 16 16 12.411 16 8C16 6.77767 15.7331 5.60628 15.2067 4.51969C15.0467 4.18766 14.6466 4.04932 14.3164 4.20996Z" fill="currentColor"/>
+                                            <path d="M7.99967 2.66663C7.63167 2.66663 7.33301 2.96529 7.33301 3.33329V7.99996C7.33301 8.36796 7.63167 8.66663 7.99967 8.66663H11.333C11.701 8.66663 11.9997 8.36796 11.9997 7.99996C11.9997 7.63196 11.701 7.33329 11.333 7.33329H8.66634V3.33329C8.66634 2.96529 8.36768 2.66663 7.99967 2.66663Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">8:00 am - 5:00 pm</div>
+                                </div>
+                            </li>
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.9748 3.12964C13.6007 1.14086 11.4229 0 9.0002 0C6.57754 0 4.39972 1.14086 3.02557 3.12964C1.65816 5.10838 1.34243 7.61351 2.17929 9.82677C2.40313 10.4312 2.75894 11.0184 3.23433 11.5687L8.52105 17.7784C8.64062 17.919 8.8158 18 9.0002 18C9.18459 18 9.35978 17.919 9.47934 17.7784L14.7646 11.5703C15.2421 11.0169 15.5974 10.4303 15.8194 9.83078C16.658 7.61351 16.3422 5.10838 14.9748 3.12964ZM14.6408 9.38999C14.4697 9.85257 14.1902 10.3099 13.8107 10.7498C13.8096 10.7509 13.8086 10.7519 13.8077 10.7532L9.0002 16.3999L4.1897 10.7497C3.8104 10.3101 3.53094 9.85282 3.35808 9.38581C2.66599 7.55539 2.92864 5.48413 4.06088 3.84546C5.19668 2.20155 6.9971 1.25873 9.0002 1.25873C11.0033 1.25873 12.8035 2.20152 13.9393 3.84546C15.0718 5.48413 15.3346 7.55539 14.6408 9.38999Z" fill="currentColor"/>
+                                            <path d="M9.00019 3.73438C7.0569 3.73438 5.47571 5.31535 5.47571 7.25886C5.47571 9.20237 7.05668 10.7833 9.00019 10.7833C10.9437 10.7833 12.5247 9.20237 12.5247 7.25886C12.5247 5.31556 10.9435 3.73438 9.00019 3.73438ZM9.00019 9.52457C7.75088 9.52457 6.73444 8.50814 6.73444 7.25882C6.73444 6.00951 7.75088 4.99307 9.00019 4.99307C10.2495 4.99307 11.2659 6.00951 11.2659 7.25882C11.2659 8.50814 10.2495 9.52457 9.00019 9.52457Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">London, UK</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md mb-6">
+                <!-- Card -->
+                <div class="card border shadow p-2 lift sk-fade">
+                    <!-- Image -->
+                    <div class="card-zoom position-relative">
+                        <a href="./event-single.html" class="card-img d-block sk-thumbnail img-ratio-3 card-hover-overlay"><img class="rounded shadow-light-lg img-fluid" src="assets/img/post/post-3.jpg" alt="..."></a>
+                        <a href="./event-single.html" class="text-underline text-white card-text-overlay position-absolute h5 mb-0 center">GET TICKET</a>
+                        <a href="./event-single.html" class="badge sk-fade-bottom badge-lg badge-orange badge-pill badge-float bottom-0 left-0 mb-4 ms-4 px-5 me-4">
+                            <span class="text-white fw-normal font-size-sm">06 Aprıl</span>
+                        </a>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer px-2 pb-2 pt-4">
+                        <!-- Heading -->
+                        <a href="./event-single.html" class="d-block"><h5 class="line-clamp-2 h-48 h-lg-52 mb-2">Discover Law - Get into the best UK law schools</h5></a>
+
+                        <ul class="nav mx-n3 d-block d-md-flex">
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.3164 4.20996C13.985 4.37028 13.8464 4.76904 14.0067 5.10026C14.4447 6.00505 14.6667 6.98031 14.6667 8C14.6667 11.6759 11.6759 14.6667 8 14.6667C4.32406 14.6667 1.33333 11.6759 1.33333 8C1.33333 4.32406 4.32406 1.33333 8 1.33333C9.52328 1.33333 10.9543 1.83073 12.1387 2.77165C12.4259 3.00098 12.846 2.95296 13.0754 2.66471C13.3047 2.37663 13.2567 1.95703 12.9683 1.72803C11.5661 0.613607 9.8016 0 8 0C3.58903 0 0 3.58903 0 8C0 12.411 3.58903 16 8 16C12.411 16 16 12.411 16 8C16 6.77767 15.7331 5.60628 15.2067 4.51969C15.0467 4.18766 14.6466 4.04932 14.3164 4.20996Z" fill="currentColor"/>
+                                            <path d="M7.99967 2.66663C7.63167 2.66663 7.33301 2.96529 7.33301 3.33329V7.99996C7.33301 8.36796 7.63167 8.66663 7.99967 8.66663H11.333C11.701 8.66663 11.9997 8.36796 11.9997 7.99996C11.9997 7.63196 11.701 7.33329 11.333 7.33329H8.66634V3.33329C8.66634 2.96529 8.36768 2.66663 7.99967 2.66663Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">8:00 am - 5:00 pm</div>
+                                </div>
+                            </li>
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.9748 3.12964C13.6007 1.14086 11.4229 0 9.0002 0C6.57754 0 4.39972 1.14086 3.02557 3.12964C1.65816 5.10838 1.34243 7.61351 2.17929 9.82677C2.40313 10.4312 2.75894 11.0184 3.23433 11.5687L8.52105 17.7784C8.64062 17.919 8.8158 18 9.0002 18C9.18459 18 9.35978 17.919 9.47934 17.7784L14.7646 11.5703C15.2421 11.0169 15.5974 10.4303 15.8194 9.83078C16.658 7.61351 16.3422 5.10838 14.9748 3.12964ZM14.6408 9.38999C14.4697 9.85257 14.1902 10.3099 13.8107 10.7498C13.8096 10.7509 13.8086 10.7519 13.8077 10.7532L9.0002 16.3999L4.1897 10.7497C3.8104 10.3101 3.53094 9.85282 3.35808 9.38581C2.66599 7.55539 2.92864 5.48413 4.06088 3.84546C5.19668 2.20155 6.9971 1.25873 9.0002 1.25873C11.0033 1.25873 12.8035 2.20152 13.9393 3.84546C15.0718 5.48413 15.3346 7.55539 14.6408 9.38999Z" fill="currentColor"/>
+                                            <path d="M9.00019 3.73438C7.0569 3.73438 5.47571 5.31535 5.47571 7.25886C5.47571 9.20237 7.05668 10.7833 9.00019 10.7833C10.9437 10.7833 12.5247 9.20237 12.5247 7.25886C12.5247 5.31556 10.9435 3.73438 9.00019 3.73438ZM9.00019 9.52457C7.75088 9.52457 6.73444 8.50814 6.73444 7.25882C6.73444 6.00951 7.75088 4.99307 9.00019 4.99307C10.2495 4.99307 11.2659 6.00951 11.2659 7.25882C11.2659 8.50814 10.2495 9.52457 9.00019 9.52457Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">London, UK</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md mb-6">
+                <!-- Card -->
+                <div class="card border shadow p-2 lift sk-fade">
+                    <!-- Image -->
+                    <div class="card-zoom position-relative">
+                        <a href="./event-single.html" class="card-img d-block sk-thumbnail img-ratio-3 card-hover-overlay"><img class="rounded shadow-light-lg img-fluid" src="assets/img/post/post-1.jpg" alt="..."></a>
+                        <a href="./event-single.html" class="text-underline text-white card-text-overlay position-absolute h5 mb-0 center">GET TICKET</a>
+                        <a href="./event-single.html" class="badge sk-fade-bottom badge-lg badge-orange badge-pill badge-float bottom-0 left-0 mb-4 ms-4 px-5 me-4">
+                            <span class="text-white fw-normal font-size-sm">06 Aprıl</span>
+                        </a>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer px-2 pb-2 pt-4">
+                        <!-- Heading -->
+                        <a href="./event-single.html" class="d-block"><h5 class="line-clamp-2 h-48 h-lg-52 mb-2">Discover Law - Get into the best UK law schools</h5></a>
+
+                        <ul class="nav mx-n3 d-block d-md-flex">
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.3164 4.20996C13.985 4.37028 13.8464 4.76904 14.0067 5.10026C14.4447 6.00505 14.6667 6.98031 14.6667 8C14.6667 11.6759 11.6759 14.6667 8 14.6667C4.32406 14.6667 1.33333 11.6759 1.33333 8C1.33333 4.32406 4.32406 1.33333 8 1.33333C9.52328 1.33333 10.9543 1.83073 12.1387 2.77165C12.4259 3.00098 12.846 2.95296 13.0754 2.66471C13.3047 2.37663 13.2567 1.95703 12.9683 1.72803C11.5661 0.613607 9.8016 0 8 0C3.58903 0 0 3.58903 0 8C0 12.411 3.58903 16 8 16C12.411 16 16 12.411 16 8C16 6.77767 15.7331 5.60628 15.2067 4.51969C15.0467 4.18766 14.6466 4.04932 14.3164 4.20996Z" fill="currentColor"/>
+                                            <path d="M7.99967 2.66663C7.63167 2.66663 7.33301 2.96529 7.33301 3.33329V7.99996C7.33301 8.36796 7.63167 8.66663 7.99967 8.66663H11.333C11.701 8.66663 11.9997 8.36796 11.9997 7.99996C11.9997 7.63196 11.701 7.33329 11.333 7.33329H8.66634V3.33329C8.66634 2.96529 8.36768 2.66663 7.99967 2.66663Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">8:00 am - 5:00 pm</div>
+                                </div>
+                            </li>
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.9748 3.12964C13.6007 1.14086 11.4229 0 9.0002 0C6.57754 0 4.39972 1.14086 3.02557 3.12964C1.65816 5.10838 1.34243 7.61351 2.17929 9.82677C2.40313 10.4312 2.75894 11.0184 3.23433 11.5687L8.52105 17.7784C8.64062 17.919 8.8158 18 9.0002 18C9.18459 18 9.35978 17.919 9.47934 17.7784L14.7646 11.5703C15.2421 11.0169 15.5974 10.4303 15.8194 9.83078C16.658 7.61351 16.3422 5.10838 14.9748 3.12964ZM14.6408 9.38999C14.4697 9.85257 14.1902 10.3099 13.8107 10.7498C13.8096 10.7509 13.8086 10.7519 13.8077 10.7532L9.0002 16.3999L4.1897 10.7497C3.8104 10.3101 3.53094 9.85282 3.35808 9.38581C2.66599 7.55539 2.92864 5.48413 4.06088 3.84546C5.19668 2.20155 6.9971 1.25873 9.0002 1.25873C11.0033 1.25873 12.8035 2.20152 13.9393 3.84546C15.0718 5.48413 15.3346 7.55539 14.6408 9.38999Z" fill="currentColor"/>
+                                            <path d="M9.00019 3.73438C7.0569 3.73438 5.47571 5.31535 5.47571 7.25886C5.47571 9.20237 7.05668 10.7833 9.00019 10.7833C10.9437 10.7833 12.5247 9.20237 12.5247 7.25886C12.5247 5.31556 10.9435 3.73438 9.00019 3.73438ZM9.00019 9.52457C7.75088 9.52457 6.73444 8.50814 6.73444 7.25882C6.73444 6.00951 7.75088 4.99307 9.00019 4.99307C10.2495 4.99307 11.2659 6.00951 11.2659 7.25882C11.2659 8.50814 10.2495 9.52457 9.00019 9.52457Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">London, UK</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md mb-6">
+                <!-- Card -->
+                <div class="card border shadow p-2 lift sk-fade">
+                    <!-- Image -->
+                    <div class="card-zoom position-relative">
+                        <a href="./event-single.html" class="card-img d-block sk-thumbnail img-ratio-3 card-hover-overlay"><img class="rounded shadow-light-lg img-fluid" src="assets/img/post/post-2.jpg" alt="..."></a>
+                        <a href="./event-single.html" class="text-underline text-white card-text-overlay position-absolute h5 mb-0 center">GET TICKET</a>
+                        <a href="./event-single.html" class="badge sk-fade-bottom badge-lg badge-orange badge-pill badge-float bottom-0 left-0 mb-4 ms-4 px-5 me-4">
+                            <span class="text-white fw-normal font-size-sm">06 Aprıl</span>
+                        </a>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer px-2 pb-2 pt-4">
+                        <!-- Heading -->
+                        <a href="./event-single.html" class="d-block"><h5 class="line-clamp-2 h-48 h-lg-52 mb-2">Discover Law - Get into the best UK law schools</h5></a>
+
+                        <ul class="nav mx-n3 d-block d-md-flex">
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.3164 4.20996C13.985 4.37028 13.8464 4.76904 14.0067 5.10026C14.4447 6.00505 14.6667 6.98031 14.6667 8C14.6667 11.6759 11.6759 14.6667 8 14.6667C4.32406 14.6667 1.33333 11.6759 1.33333 8C1.33333 4.32406 4.32406 1.33333 8 1.33333C9.52328 1.33333 10.9543 1.83073 12.1387 2.77165C12.4259 3.00098 12.846 2.95296 13.0754 2.66471C13.3047 2.37663 13.2567 1.95703 12.9683 1.72803C11.5661 0.613607 9.8016 0 8 0C3.58903 0 0 3.58903 0 8C0 12.411 3.58903 16 8 16C12.411 16 16 12.411 16 8C16 6.77767 15.7331 5.60628 15.2067 4.51969C15.0467 4.18766 14.6466 4.04932 14.3164 4.20996Z" fill="currentColor"/>
+                                            <path d="M7.99967 2.66663C7.63167 2.66663 7.33301 2.96529 7.33301 3.33329V7.99996C7.33301 8.36796 7.63167 8.66663 7.99967 8.66663H11.333C11.701 8.66663 11.9997 8.36796 11.9997 7.99996C11.9997 7.63196 11.701 7.33329 11.333 7.33329H8.66634V3.33329C8.66634 2.96529 8.36768 2.66663 7.99967 2.66663Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">8:00 am - 5:00 pm</div>
+                                </div>
+                            </li>
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.9748 3.12964C13.6007 1.14086 11.4229 0 9.0002 0C6.57754 0 4.39972 1.14086 3.02557 3.12964C1.65816 5.10838 1.34243 7.61351 2.17929 9.82677C2.40313 10.4312 2.75894 11.0184 3.23433 11.5687L8.52105 17.7784C8.64062 17.919 8.8158 18 9.0002 18C9.18459 18 9.35978 17.919 9.47934 17.7784L14.7646 11.5703C15.2421 11.0169 15.5974 10.4303 15.8194 9.83078C16.658 7.61351 16.3422 5.10838 14.9748 3.12964ZM14.6408 9.38999C14.4697 9.85257 14.1902 10.3099 13.8107 10.7498C13.8096 10.7509 13.8086 10.7519 13.8077 10.7532L9.0002 16.3999L4.1897 10.7497C3.8104 10.3101 3.53094 9.85282 3.35808 9.38581C2.66599 7.55539 2.92864 5.48413 4.06088 3.84546C5.19668 2.20155 6.9971 1.25873 9.0002 1.25873C11.0033 1.25873 12.8035 2.20152 13.9393 3.84546C15.0718 5.48413 15.3346 7.55539 14.6408 9.38999Z" fill="currentColor"/>
+                                            <path d="M9.00019 3.73438C7.0569 3.73438 5.47571 5.31535 5.47571 7.25886C5.47571 9.20237 7.05668 10.7833 9.00019 10.7833C10.9437 10.7833 12.5247 9.20237 12.5247 7.25886C12.5247 5.31556 10.9435 3.73438 9.00019 3.73438ZM9.00019 9.52457C7.75088 9.52457 6.73444 8.50814 6.73444 7.25882C6.73444 6.00951 7.75088 4.99307 9.00019 4.99307C10.2495 4.99307 11.2659 6.00951 11.2659 7.25882C11.2659 8.50814 10.2495 9.52457 9.00019 9.52457Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">London, UK</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md mb-6">
+                <!-- Card -->
+                <div class="card border shadow p-2 lift sk-fade">
+                    <!-- Image -->
+                    <div class="card-zoom position-relative">
+                        <a href="./event-single.html" class="card-img d-block sk-thumbnail img-ratio-3 card-hover-overlay"><img class="rounded shadow-light-lg img-fluid" src="assets/img/post/post-3.jpg" alt="..."></a>
+                        <a href="./event-single.html" class="text-underline text-white card-text-overlay position-absolute h5 mb-0 center">GET TICKET</a>
+                        <a href="./event-single.html" class="badge sk-fade-bottom badge-lg badge-orange badge-pill badge-float bottom-0 left-0 mb-4 ms-4 px-5 me-4">
+                            <span class="text-white fw-normal font-size-sm">06 Aprıl</span>
+                        </a>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer px-2 pb-2 pt-4">
+                        <!-- Heading -->
+                        <a href="./event-single.html" class="d-block"><h5 class="line-clamp-2 h-48 h-lg-52 mb-2">Discover Law - Get into the best UK law schools</h5></a>
+
+                        <ul class="nav mx-n3 d-block d-md-flex">
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.3164 4.20996C13.985 4.37028 13.8464 4.76904 14.0067 5.10026C14.4447 6.00505 14.6667 6.98031 14.6667 8C14.6667 11.6759 11.6759 14.6667 8 14.6667C4.32406 14.6667 1.33333 11.6759 1.33333 8C1.33333 4.32406 4.32406 1.33333 8 1.33333C9.52328 1.33333 10.9543 1.83073 12.1387 2.77165C12.4259 3.00098 12.846 2.95296 13.0754 2.66471C13.3047 2.37663 13.2567 1.95703 12.9683 1.72803C11.5661 0.613607 9.8016 0 8 0C3.58903 0 0 3.58903 0 8C0 12.411 3.58903 16 8 16C12.411 16 16 12.411 16 8C16 6.77767 15.7331 5.60628 15.2067 4.51969C15.0467 4.18766 14.6466 4.04932 14.3164 4.20996Z" fill="currentColor"/>
+                                            <path d="M7.99967 2.66663C7.63167 2.66663 7.33301 2.96529 7.33301 3.33329V7.99996C7.33301 8.36796 7.63167 8.66663 7.99967 8.66663H11.333C11.701 8.66663 11.9997 8.36796 11.9997 7.99996C11.9997 7.63196 11.701 7.33329 11.333 7.33329H8.66634V3.33329C8.66634 2.96529 8.36768 2.66663 7.99967 2.66663Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">8:00 am - 5:00 pm</div>
+                                </div>
+                            </li>
+                            <li class="nav-item px-3 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 d-flex text-secondary icon-uxs">
+                                        <!-- Icon -->
+                                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.9748 3.12964C13.6007 1.14086 11.4229 0 9.0002 0C6.57754 0 4.39972 1.14086 3.02557 3.12964C1.65816 5.10838 1.34243 7.61351 2.17929 9.82677C2.40313 10.4312 2.75894 11.0184 3.23433 11.5687L8.52105 17.7784C8.64062 17.919 8.8158 18 9.0002 18C9.18459 18 9.35978 17.919 9.47934 17.7784L14.7646 11.5703C15.2421 11.0169 15.5974 10.4303 15.8194 9.83078C16.658 7.61351 16.3422 5.10838 14.9748 3.12964ZM14.6408 9.38999C14.4697 9.85257 14.1902 10.3099 13.8107 10.7498C13.8096 10.7509 13.8086 10.7519 13.8077 10.7532L9.0002 16.3999L4.1897 10.7497C3.8104 10.3101 3.53094 9.85282 3.35808 9.38581C2.66599 7.55539 2.92864 5.48413 4.06088 3.84546C5.19668 2.20155 6.9971 1.25873 9.0002 1.25873C11.0033 1.25873 12.8035 2.20152 13.9393 3.84546C15.0718 5.48413 15.3346 7.55539 14.6408 9.38999Z" fill="currentColor"/>
+                                            <path d="M9.00019 3.73438C7.0569 3.73438 5.47571 5.31535 5.47571 7.25886C5.47571 9.20237 7.05668 10.7833 9.00019 10.7833C10.9437 10.7833 12.5247 9.20237 12.5247 7.25886C12.5247 5.31556 10.9435 3.73438 9.00019 3.73438ZM9.00019 9.52457C7.75088 9.52457 6.73444 8.50814 6.73444 7.25882C6.73444 6.00951 7.75088 4.99307 9.00019 4.99307C10.2495 4.99307 11.2659 6.00951 11.2659 7.25882C11.2659 8.50814 10.2495 9.52457 9.00019 9.52457Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </div>
+                                    <div class="font-size-sm">London, UK</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+
+    <!-- FOOTER
+    ================================================== -->
+    <footer class="pt-8 pt-md-11 bg-gray-100">
+        <div class="container">
+            <div class="row" id="accordionFooter">
+                <div class="col-12 col-md-4 col-lg-4">
+
+                    <!-- Brand -->
+                    <img src="./assets/img/brand.svg" alt="..." class="footer-brand img-fluid mb-4 h-60p">
+
+                    <!-- Text -->
+                    <p class="text-gray-800 mb-4 font-size-sm-alone">
+                        329 Queensberry Street, North Melbourne VIC 3051, Australia.
+                    </p>
+
+                    <div class="mb-4">
+                        <a href="tel:1234567890" class="text-gray-800 font-size-sm-alone">123 456 7890</a>
+                    </div>
+
+                    <div class="mb-4">
+                        <a href="mailto:support@skola.com" class="text-gray-800 font-size-sm-alone">support@skola.com</a>
+                    </div>
+
+                    <!-- Social -->
+                    <ul class="list-unstyled list-inline list-social mb-4 mb-md-0">
+                        <li class="list-inline-item list-social-item">
+                            <a href="#" class="text-secondary font-size-sm w-36 h-36 shadow-dark-hover d-flex align-items-center justify-content-center rounded-circle border-hover">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item list-social-item">
+                            <a href="#" class="text-secondary font-size-sm w-36 h-36 shadow-dark-hover d-flex align-items-center justify-content-center rounded-circle border-hover">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item list-social-item">
+                            <a href="#" class="text-secondary font-size-sm w-36 h-36 shadow-dark-hover d-flex align-items-center justify-content-center rounded-circle border-hover">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item list-social-item">
+                            <a href="#" class="text-secondary font-size-sm w-36 h-36 shadow-dark-hover d-flex align-items-center justify-content-center rounded-circle border-hover">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-2">
+                    <div class="mb-5 mb-xl-0 footer-accordion">
+
+                        <!-- Heading -->
+                        <div id="widgetOne">
+                            <h5 class="mb-5">
+                                <button class="text-dark fw-medium footer-accordion-toggle d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#widgetcollapseOne" aria-expanded="true" aria-controls="widgetcollapseOne">
+                                    Our Company
+                                    <span class="ms-auto text-dark">
+                                        <!-- Icon -->
+                                        <svg width="15" height="2" viewBox="0 0 15 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="15" height="2" fill="currentColor"/>
+                                        </svg>
+
+                                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 7H15V9H0V7Z" fill="currentColor"/>
+                                            <path d="M6 16L6 8.74228e-08L8 0L8 16H6Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </span>
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="widgetcollapseOne" class="collapse show" aria-labelledby="widgetOne" data-parent="#accordionFooter">
+                            <!-- List -->
+                            <ul class="list-unstyled text-gray-800 font-size-sm-alone mb-6 mb-md-8 mb-lg-0">
+                                <li class="mb-3">
+                                    <a href="./about-v1.html" class="text-reset">
+                                        Our Company
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./about-v2.html" class="text-reset">
+                                        About Us
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./contact-us.html" class="text-reset">
+                                        Contact Us
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./contact-us.html" class="text-reset">
+                                        Community
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./course-list-v1.html" class="text-reset">
+                                        Student Perks
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./blog-grid-v1.html" class="text-reset">
+                                        Blog
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./pricing.html" class="text-reset">
+                                        Affiliate Program
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./contact-us.html" class="text-reset">
+                                        Careers
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-2">
+                    <div class="mb-5 mb-xl-0 ms-xl-6 footer-accordion">
+
+                        <!-- Heading -->
+                        <div id="widgetTwo">
+                            <h5 class="mb-5">
+                                <button class="text-dark fw-medium footer-accordion-toggle d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#widgetcollapseTwo" aria-expanded="false" aria-controls="widgetcollapseTwo">
+                                    Topics
+                                    <span class="ms-auto text-dark">
+                                        <!-- Icon -->
+                                        <svg width="15" height="2" viewBox="0 0 15 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="15" height="2" fill="currentColor"/>
+                                        </svg>
+
+                                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 7H15V9H0V7Z" fill="currentColor"/>
+                                            <path d="M6 16L6 8.74228e-08L8 0L8 16H6Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </span>
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="widgetcollapseTwo" class="collapse" aria-labelledby="widgetTwo" data-parent="#accordionFooter">
+                            <!-- List -->
+                            <ul class="list-unstyled text-gray-800 font-size-sm-alone mb-6 mb-md-8 mb-lg-0">
+                                <li class="mb-3">
+                                    <a href="./course-list-v2.html" class="text-reset">
+                                        HTML
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./course-list-v2.html" class="text-reset">
+                                        CSS
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./course-list-v6.html" class="text-reset">
+                                        Design
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./course-list-v5.html" class="text-reset">
+                                        JavaScript
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./course-list-v4.html" class="text-reset">
+                                        Ruby
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./course-list-v1.html" class="text-reset">
+                                        PHP
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./course-list-v3.html" class="text-reset">
+                                        Android
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./course-list-v4.html" class="text-reset">
+                                        Development Tools
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./course-list-v6.html" class="text-reset">
+                                        Business
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 offset-md-4 col-lg-2 offset-lg-0">
+                    <div class="mb-5 mb-xl-0 ms-xl-6 footer-accordion">
+
+                        <!-- Heading -->
+                        <div id="widgetThree">
+                            <h5 class="mb-5">
+                                <button class="text-dark fw-medium footer-accordion-toggle d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#widgetcollapseThree" aria-expanded="false" aria-controls="widgetcollapseThree">
+                                    Tracks
+                                    <span class="ms-auto text-dark">
+                                        <!-- Icon -->
+                                        <svg width="15" height="2" viewBox="0 0 15 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="15" height="2" fill="currentColor"/>
+                                        </svg>
+
+                                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 7H15V9H0V7Z" fill="currentColor"/>
+                                            <path d="M6 16L6 8.74228e-08L8 0L8 16H6Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </span>
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="widgetcollapseThree" class="collapse" aria-labelledby="widgetThree" data-parent="#accordionFooter">
+                            <!-- List -->
+                            <ul class="list-unstyled text-gray-800 font-size-sm-alone mb-0">
+                                <li class="mb-3">
+                                    <a href="./lesson-single-v1.html" class="text-reset">
+                                        Web Design
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./lesson-single-v2.html" class="text-reset">
+                                        Web Development
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./lesson-single-v1.html" class="text-reset">
+                                        Rails Development
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./lesson-single-v2.html" class="text-reset">
+                                        PHP Development
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./lesson-single-v1.html" class="text-reset">
+                                        Android Development
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./lesson-single-v2.html" class="text-reset">
+                                        Starting a Business
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-2 d-xl-flex">
+                    <div class="mb-5 mb-xl-0 ms-xl-auto footer-accordion">
+
+                        <!-- Heading -->
+                        <div id="widgetFour">
+                            <h5 class="mb-5">
+                                <button class="text-dark fw-medium footer-accordion-toggle d-flex align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#widgetcollapseFour" aria-expanded="false" aria-controls="widgetcollapseFour">
+                                    Support
+                                    <span class="ms-auto text-dark">
+                                        <!-- Icon -->
+                                        <svg width="15" height="2" viewBox="0 0 15 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="15" height="2" fill="currentColor"/>
+                                        </svg>
+
+                                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 7H15V9H0V7Z" fill="currentColor"/>
+                                            <path d="M6 16L6 8.74228e-08L8 0L8 16H6Z" fill="currentColor"/>
+                                        </svg>
+
+                                    </span>
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="widgetcollapseFour" class="collapse" aria-labelledby="widgetFour" data-parent="#accordionFooter">
+                            <!-- List -->
+                            <ul class="list-unstyled text-gray-800 font-size-sm-alone mb-0">
+                                <li class="mb-3">
+                                    <a href="./docs/index.html" class="text-reset">
+                                        Documentation
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./docs/index.html" class="text-reset">
+                                        Forums
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./docs/index.html" class="text-reset">
+                                        Language Packs
+                                    </a>
+                                </li>
+                                <li class="mb-3">
+                                    <a href="./docs/changelog.html" class="text-reset">
+                                        Release Status
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-md-5">
+                    <div class="border-top pb-5 pt-6 py-md-4 text-center text-xl-start d-flex flex-column d-md-block d-xl-flex flex-xl-row align-items-center">
+                        <p class="text-gray-800 font-size-sm-alone d-block mb-0 mb-md-2 mb-xl-0 order-1 order-md-0 px-9 px-md-0">Copyright © 2021 CreativeLayers. All Right Reserved.</p>
+
+                        <div class="ms-xl-auto d-flex flex-column flex-md-row align-items-stretch align-items-md-center justify-content-center">
+                            <ul class="navbar-nav flex-row flex-wrap font-size-sm-alone mb-3 mb-md-0 mx-n4 me-md-5 justify-content-center justify-content-lg-start order-1 order-md-0">
+                                <li class="nav-item py-2 py-md-0 px-0 border-top-0">
+                                    <a href="./index.html" class="nav-link px-4 fw-normal text-gray-800">Home</a>
+                                </li>
+                                <li class="nav-item py-2 py-md-0 px-0 border-top-0">
+                                    <a href="./terms-of-service.html" class="nav-link px-4 fw-normal text-gray-800">Site Map</a>
+                                </li>
+                                <li class="nav-item py-2 py-md-0 px-0 border-top-0">
+                                    <a href="./terms-of-service.html" class="nav-link px-4 fw-normal text-gray-800">Privacy policy</a>
+                                </li>
+                                <li class="nav-item py-2 py-md-0 px-0 border-top-0">
+                                    <a href="./terms-of-service.html" class="nav-link px-4 fw-normal text-gray-800">Web Use Policy</a>
+                                </li>
+                                <li class="nav-item py-2 py-md-0 px-0 border-top-0">
+                                    <a href="./terms-of-service.html" class="nav-link px-4 fw-normal text-gray-800">Cookie Policy</a>
+                                </li>
+                            </ul>
+
+                            <select class="form-select form-select-sm font-size-sm-alone shadow min-width-140 text-left mb-4 mb-md-0" data-choices>
+                                <option>English</option>
+                                <option>Tamil</option>
+                                <option>French</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+    </footer>
+
+
+    <!-- JAVASCRIPT
+    ================================================== -->
+    <!-- Libs JS -->
+    <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="./assets/libs/aos/dist/aos.js"></script>
+    <script src="./assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="./assets/libs/countup.js/dist/countUp.min.js"></script>
+    <script src="./assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+    <script src="./assets/libs/flickity/dist/flickity.pkgd.min.js"></script>
+    <script src="./assets/libs/flickity-fade/flickity-fade.js"></script>
+    <script src="./assets/libs/highlightjs/highlight.pack.min.js"></script>
+    <script src="./assets/libs/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/isotope-layout/dist/isotope.pkgd.min.js"></script>
+    <script src="./assets/libs/jarallax/dist/jarallax.min.js"></script>
+    <script src="./assets/libs/jarallax/dist/jarallax-video.min.js"></script>
+    <script src="./assets/libs/jarallax/dist/jarallax-element.min.js"></script>
+    <script src="./assets/libs/parallax-js/dist/parallax.min.js"></script>
+    <script src="./assets/libs/quill/dist/quill.min.js"></script>
+    <script src="./assets/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
+    <script src="./assets/libs/typed.js/lib/typed.min.js"></script>
+
+    <!-- Map -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+    <!-- Theme JS -->
+    <script src="./assets/js/theme.min.js"></script>
+
+
+</body>
+</html>
